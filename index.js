@@ -16,7 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   //Step 1 - Make the get route work and render the index.ejs file.
-  res.render("index.ejs");
+
+  var ano = new Date();
+  var anoAtual = ano.getFullYear();
+
+  res.render("index.ejs", {anocopy: anoAtual});
 });
 
 app.post("/submit", (req, res) => {
